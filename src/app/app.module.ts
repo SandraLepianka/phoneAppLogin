@@ -17,6 +17,7 @@ import { AddPhoneComponent } from './add-phone/add-phone.component';
 import { LeaveAddPhoneGuardService } from './add-phone/leave-add-phone-guard.service';
 import { ResolveDetailsGuardService } from './phone-details/resolve-details-guard.service';
 import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginComponent } from './login/login.component';
     PhoneListComponent,
     PhoneDetailsComponent,
     AddPhoneComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

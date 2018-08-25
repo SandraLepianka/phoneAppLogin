@@ -19,7 +19,7 @@ export const routes: Routes = [
     {
         path: 'list',
         component: PhoneListComponent,
-        canDeactivate: [ LeaveAddPhoneGuardService ]
+        canActivate: [ EnterDetailsGuardService ]
     },
     {
         path: 'phone/:id',

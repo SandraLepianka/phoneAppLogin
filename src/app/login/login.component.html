@@ -15,10 +15,6 @@
   <h2> You are now logged in as {{ user.username }}!! </h2>
   <p> Here's the user object </p>
   <pre> {{ user | json }} </pre>
-
-  <a [routerLink]="['/add']">ADD A PHONE</a>
-  <a [routerLink]="['/list']">SEE ALL PHONES</a>
-
   <p *ngIf="privateData"> Here's some data fetched from a protected API </p>
   <pre> {{ privateData | json }} </pre>
   <button (click)="logout()"> logout </button>
