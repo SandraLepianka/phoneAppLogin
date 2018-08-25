@@ -18,6 +18,7 @@ import { LeaveAddPhoneGuardService } from './add-phone/leave-add-phone-guard.ser
 import { ResolveDetailsGuardService } from './phone-details/resolve-details-guard.service';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HeaderComponent } from './header/header.component';
     PhoneDetailsComponent,
     AddPhoneComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

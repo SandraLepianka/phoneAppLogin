@@ -7,5 +7,6 @@ import { SessionService } from "./services/session.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'phone-app';
+  title:string = 'phone-app';
+  loggedin:boolean = false;
 }

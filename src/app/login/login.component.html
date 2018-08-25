@@ -1,4 +1,4 @@
-<h1> Authentication Sample </h1>
+<h1> Awesome Phone Store!!! </h1>
 <form *ngIf="!user">
   <h2> Login or Signup </h2>
   <label> Username </label>
@@ -6,9 +6,9 @@
   <br>
   <label> Password </label>
   <input type="password" [(ngModel)]="formInfo.password" name="password"/>
-
-  <button (click)="login()"> login </button>
-  <button (click)="signup()"> signup </button>
+  <br>
+  <button type="button" class="btn btn-dark" (click)="login()"> login </button>
+  <button type="button" class="btn btn-light" (click)="signup()"> signup </button>
 </form>
 
 <div *ngIf="user">
