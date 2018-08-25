@@ -1,3 +1,4 @@
+import { SessionService } from './../services/session.service';
 import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 
@@ -20,9 +21,14 @@ export class AddPhoneComponent implements OnInit {
   feedback: string = "";
 
 
-  constructor() { }
+  constructor(private session:SessionService) { }
 
   ngOnInit() {
+      this.session.isLoggedIn()
+      .subscribe(
+        (user) => console.log("LOGG = ", user)
+      );
+
     this.uploader.onSuccessItem = (item, response) => {
       this.feedback = JSON.parse(response).message;
     };
