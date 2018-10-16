@@ -7,25 +7,22 @@ import { FileUploadModule } from "ng2-file-upload";
 import { FormsModule } from "@angular/forms";
 
 
-import { PhoneService} from './services/phone.service';
+import { RestaurantService} from './services/restaurant.service';
 import { SessionService } from "./services/session.service";
-import { EnterDetailsGuardService } from './phone-details/enter-details-guard.service';
 import { AppComponent } from './app.component';
-import { PhoneListComponent } from './phone-list/phone-list.component';
-import { PhoneDetailsComponent } from './phone-details/phone-details.component';
-import { AddPhoneComponent } from './add-phone/add-phone.component';
-import { LeaveAddPhoneGuardService } from './add-phone/leave-add-phone-guard.service';
-import { ResolveDetailsGuardService } from './phone-details/resolve-details-guard.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { RestaurantComponent } from './restaurant/restaurant.component';
+import { AddPhoneComponent } from './add-phone/add-phone.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PhoneListComponent,
-    PhoneDetailsComponent,
+    DashboardComponent,
     AddPhoneComponent,
+    RestaurantComponent,
     LoginComponent,
     HeaderComponent,
     FooterComponent
@@ -37,10 +34,7 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     FileUploadModule
   ],
-  providers: [PhoneService, 
-    EnterDetailsGuardService, 
-    LeaveAddPhoneGuardService, 
-    ResolveDetailsGuardService, 
+  providers: [RestaurantService,
     SessionService
   ],
   bootstrap: [AppComponent]

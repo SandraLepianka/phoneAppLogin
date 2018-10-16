@@ -1,16 +1,17 @@
 import { CanActivate } from '@angular/router';
 import { Injectable }  from '@angular/core';
 import { Observable }  from 'rxjs';
+import { SessionService } from '../services/session.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EnterDetailsGuardService implements CanActivate {
-  constructor() { }
+  constructor(private session: SessionService) {
+
+   }
   canActivate(): Observable<boolean> | Promise<boolean> | boolean {
-    console.log('canActivate guard has been called');
-    return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(true), 1000);
-    });
+    
+    return true;
   }
 }

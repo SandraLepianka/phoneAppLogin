@@ -7,14 +7,20 @@ import { environment } from '../../environments/environment'
   providedIn: 'root'
 })
 
-export class PhoneService {
+export class RestaurantService {
   constructor(private http: Http) {}
 
   getList() {
-    return this.http.get(`${environment.BASE_URL}/api/phones`)
+    return this.http.get(`${environment.API_URL}/api/restaurants`)
       .pipe(map((res) => res.json()));
   }
 
+
+  reserve(reservation) {
+    return this.http.post(`${environment.API_URL}/api/restaurants/${reservation.restaurant_id}/book`, reservation)
+      .pipe(map((res) => res.json()));
+  }
+/*
   get(id) {
     return this.http.get(`${environment.BASE_URL}/api/phones/${id}`)
       .pipe(map((res) => res.json()));
@@ -29,4 +35,5 @@ export class PhoneService {
     return this.http.delete(`${environment.BASE_URL}/api/phones/${id}`)
       .pipe(map((res) => res.json()));
   }
+  */
 }

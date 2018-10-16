@@ -1,6 +1,7 @@
 import { SessionService } from './../services/session.service';
 import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
+import { RestaurantService } from '../services/restaurant.service';
 
 @Component({
   selector: 'app-add-phone',
@@ -8,61 +9,26 @@ import { FileUploader } from 'ng2-file-upload';
   styleUrls: ['./add-phone.component.css']
 })
 export class AddPhoneComponent implements OnInit {
-  uploader: FileUploader = new FileUploader({
-    url: `http://localhost:3000/api`, itemAlias: 'file'
-  });
-
-  newPhone = {
-    name: '',
-    brand: '',
-    specs: []
+ 
+  reservation = {
+    date: '',
+    number: '',
+    restaurant_id: '123123123'
   };
 
-  feedback: string = "";
+  constructor(private restaurants:RestaurantService) { }
 
-
-  constructor(private session:SessionService) { }
-
-  ngOnInit() {
-      this.session.isLoggedIn()
-      .subscribe(
-        (user) => console.log("LOGG = ", user)
-      );
-
-    this.uploader.onSuccessItem = (item, response) => {
-      this.feedback = JSON.parse(response).message;
-    };
-
-    this.uploader.onErrorItem = (item, response, status, headers) => {
-      this.feedback = JSON.parse(response).message;
-    };
-  }
-
-  addSpec(spec) {
-    this.newPhone.specs.push(spec);
-  }
+  ngOnInit(){}
 
   submit() {
-    this.uploader.onBuildItemForm = (item, form) => {
-      form.append('name', this.newPhone.name);
-      form.append('brand', this.newPhone.brand);
-      form.append('specs', JSON.stringify(this.newPhone.specs));
-    };
-    this.uploader.uploadAll();
+    this.restaurants.reserve(this.reservation)
+    .subscribe((result) => {
+      console.log(result);
+      alert('saved!!!!')
+    })
   }
-
-  isFormClean(): boolean {
-    console.log('name == brand: ', this.newPhone.name === '' || this.newPhone.brand === '')
-
-    if (this.newPhone.name === '' || this.newPhone.brand === '') {
-      return window.confirm(`
-          Unsaved changes.
-          Are you sure you want to quit?
-      `);
-    }
-  
+  isFormClean() {
     return true;
   }
-
 
 }

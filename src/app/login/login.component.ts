@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from "../services/session.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   error: string;
   privateData: any = '';
 
-  constructor(private session: SessionService) { }
+  constructor(private session: SessionService, private router: Router) { }
 
   ngOnInit() {
     this.session.isLoggedIn()
@@ -66,6 +67,8 @@ export class LoginComponent implements OnInit {
   successCb(user) {
     this.user = user;
     this.error = null;
+
+    //this.router.navigateByUrl('dashboard');
   }
 
 

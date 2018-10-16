@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { SessionService } from '../services/session.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  @Input() user: any;
+  @Output() onLogout = new EventEmitter<string>();
+
+
+  constructor(private session:SessionService) { }
 
   ngOnInit() {
+  }
+
+
+
+  logout(event) {
+    alert('in child')
+    this.onLogout.emit(event);
   }
 
 }

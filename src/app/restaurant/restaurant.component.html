@@ -1,0 +1,8 @@
+<div class="card card-resp">
+  <img class="card-img-top" src="{{restaurant.image_url}}" alt="{{restaurant.name}}">
+  <div class="card-body">
+    <h5 class="card-title">{{restaurant.name}}</h5>
+    <p class="card-text">{{restaurant.address}}<br>{{restaurant.city}}<br>{{restaurant.phone}}</p>
+    <a class="btn btn-primary" href="#" [routerLink]="['reserve', restaurant._id]">Book Now</a>
+  </div>
+</div>
